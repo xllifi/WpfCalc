@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>false</SelfContained>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <ApplicationIcon>calc-logo-256x.ico</ApplicationIcon>
+        <_SuppressWpfTrimError>true</_SuppressWpfTrimError>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DarkNet" Version="2.3.0" />
+      <PackageReference Include="Emoji.Wpf" Version="0.3.4" />
+    </ItemGroup>
+
+</Project>
