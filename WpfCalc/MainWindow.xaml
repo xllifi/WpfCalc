@@ -38,7 +38,7 @@
             </Style>
         </Grid.Resources>
 
-        <TextBox Grid.Row="0" Name="TxtDisplay" Margin="10"
+        <TextBox Grid.Row="0" Name="TxtDisplay" Margin="12"
                  TextAlignment="Right" IsReadOnly="True" >0</TextBox>
         <!-- Комментарий -->
 
