@@ -6,8 +6,8 @@
         xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
         xmlns:local="clr-namespace:WpfCalc"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="440" Width="300" 
-        MinHeight="340" MinWidth="260"
+        Title="Калькулятор" Height="390" Width="260" 
+        MinHeight="390" MinWidth="260"
         Background="#202020">
     <Grid>
         <Grid.RowDefinitions>
@@ -68,32 +68,185 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
-                                <Border Margin="2" 
+                                <Border x:Name="border"
+                                        Margin="2" 
                                         CornerRadius="12" 
                                         BorderBrush="{TemplateBinding BorderBrush}" 
                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                        >
+                                >
                                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     <Border.Background>
                                         <SolidColorBrush x:Name="BtnBackground" Color="#444"/>
                                     </Border.Background>
                                 </Border>
                                 <ControlTemplate.Resources>
-                                    <Storyboard x:Key="MouseInAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color">
-                                        <ColorAnimation To="#666" Duration="0:0:0.1"/>
+                                    <Storyboard x:Key="MouseInAnimation">
+                                        <ColorAnimation Storyboard.TargetName="BtnBackground" Storyboard.TargetProperty="Color" To="#666" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                    <Storyboard x:Key="MouseOutAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color" FillBehavior="Stop">
+                                    <Storyboard x:Key="MouseOutAnimation" TargetName="BtnBackground" TargetProperty="Color" FillBehavior="Stop">
                                         <ColorAnimation To="#444" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                    <Storyboard x:Key="MouseDownAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color">
+                                    <Storyboard x:Key="MouseDownAnimation" TargetName="BtnBackground" TargetProperty="Color">
                                         <ColorAnimation To="#333" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                    <Storyboard x:Key="MouseUpAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color" FillBehavior="Stop">
+                                    <Storyboard x:Key="MouseUpAnimation" TargetName="BtnBackground" TargetProperty="Color" FillBehavior="Stop">
                                         <ColorAnimation To="#444" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </ControlTemplate.Resources>
                                 <ControlTemplate.Triggers>
@@ -123,32 +276,185 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
-                                <Border Margin="2" 
+                                <Border x:Name="border"
+                                        Margin="2" 
                                         CornerRadius="12" 
                                         BorderBrush="{TemplateBinding BorderBrush}" 
                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                        >
+                                >
                                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     <Border.Background>
                                         <SolidColorBrush x:Name="BtnBackground" Color="#114a8b"/>
                                     </Border.Background>
                                 </Border>
                                 <ControlTemplate.Resources>
-                                    <Storyboard x:Key="MouseInAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color">
+                                    <Storyboard x:Key="MouseInAnimation" TargetName="BtnBackground" TargetProperty="Color">
                                         <ColorAnimation To="#185aa4" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                    <Storyboard x:Key="MouseOutAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color" FillBehavior="Stop">
+                                    <Storyboard x:Key="MouseOutAnimation" TargetName="BtnBackground" TargetProperty="Color" FillBehavior="Stop">
                                         <ColorAnimation To="#114a8b" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                    <Storyboard x:Key="MouseDownAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color">
+                                    <Storyboard x:Key="MouseDownAnimation" TargetName="BtnBackground" TargetProperty="Color">
                                         <ColorAnimation To="#173a74" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                    <Storyboard x:Key="MouseUpAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color" FillBehavior="Stop">
+                                    <Storyboard x:Key="MouseUpAnimation" TargetName="BtnBackground" TargetProperty="Color" FillBehavior="Stop">
                                         <ColorAnimation To="#114a8b" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </ControlTemplate.Resources>
                                 <ControlTemplate.Triggers>
@@ -178,7 +484,8 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
-                                <Border Margin="2" 
+                                <Border x:Name="border"
+                                        Margin="2" 
                                         CornerRadius="12" 
                                         BorderBrush="{TemplateBinding BorderBrush}" 
                                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -189,21 +496,173 @@
                                     </Border.Background>
                                 </Border>
                                 <ControlTemplate.Resources>
-                                    <Storyboard x:Key="MouseInAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color">
+                                    <Storyboard x:Key="MouseInAnimation" TargetName="BtnBackground" TargetProperty="Color">
                                         <ColorAnimation To="#950" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                    <Storyboard x:Key="MouseOutAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color" FillBehavior="Stop">
+                                    <Storyboard x:Key="MouseOutAnimation" TargetName="BtnBackground" TargetProperty="Color" FillBehavior="Stop">
                                         <ColorAnimation To="#840" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                    <Storyboard x:Key="MouseDownAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color">
+                                    <Storyboard x:Key="MouseDownAnimation" TargetName="BtnBackground" TargetProperty="Color">
                                         <ColorAnimation To="#730" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
-                                    <Storyboard x:Key="MouseUpAnimation" TargetName="BtnBackground"
-                                                TargetProperty="Color" FillBehavior="Stop">
+                                    <Storyboard x:Key="MouseUpAnimation" TargetName="BtnBackground" TargetProperty="Color" FillBehavior="Stop">
                                         <ColorAnimation To="#840" Duration="0:0:0.1"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="CornerRadius">
+                                            <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="12" BottomRight="12" TopLeft="12" TopRight="12" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.02">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="14.4" BottomRight="14.4" TopLeft="14.4" TopRight="14.4" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.04">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="16.8" BottomRight="16.8" TopLeft="16.8" TopRight="16.8" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.06">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="19.2" BottomRight="19.2" TopLeft="19.2" TopRight="19.2" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.08">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="21.6" BottomRight="21.6" TopLeft="21.6" TopRight="21.6" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                                
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.10">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <CornerRadius BottomLeft="24" BottomRight="24" TopLeft="24" TopRight="24" />
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </ControlTemplate.Resources>
                                 <ControlTemplate.Triggers>
@@ -231,26 +690,26 @@
             </Grid.Resources>
 
             <!-- Digit Buttons -->
-            <Button Name="Btn9" Grid.Row="1" Grid.Column="2" Click="Btn9_Click">9</Button>
-            <Button Name="Btn8" Grid.Row="1" Grid.Column="1" Click="Btn8_Click">8</Button>
-            <Button Name="Btn7" Grid.Row="1" Grid.Column="0" Click="Btn7_Click">7</Button>
-            <Button Name="Btn6" Grid.Row="2" Grid.Column="2" Click="Btn6_Click">6</Button>
-            <Button Name="Btn5" Grid.Row="2" Grid.Column="1" Click="Btn5_Click">5</Button>
-            <Button Name="Btn4" Grid.Row="2" Grid.Column="0" Click="Btn4_Click">4</Button>
-            <Button Name="Btn3" Grid.Row="3" Grid.Column="2" Click="Btn3_Click">3</Button>
-            <Button Name="Btn2" Grid.Row="3" Grid.Column="1" Click="Btn2_Click">2</Button>
-            <Button Name="Btn1" Grid.Row="3" Grid.Column="0" Click="Btn1_Click">1</Button>
-            <Button Name="Btn0" Grid.Row="4" Grid.Column="0" Click="Btn0_Click" Grid.ColumnSpan="2">0</Button>
+            <Button Name="Btn9" Grid.Row="1" Grid.Column="2" Click="AppendDigit">9</Button>
+            <Button Name="Btn8" Grid.Row="1" Grid.Column="1" Click="AppendDigit">8</Button>
+            <Button Name="Btn7" Grid.Row="1" Grid.Column="0" Click="AppendDigit">7</Button>
+            <Button Name="Btn6" Grid.Row="2" Grid.Column="2" Click="AppendDigit">6</Button>
+            <Button Name="Btn5" Grid.Row="2" Grid.Column="1" Click="AppendDigit">5</Button>
+            <Button Name="Btn4" Grid.Row="2" Grid.Column="0" Click="AppendDigit">4</Button>
+            <Button Name="Btn3" Grid.Row="3" Grid.Column="2" Click="AppendDigit">3</Button>
+            <Button Name="Btn2" Grid.Row="3" Grid.Column="1" Click="AppendDigit">2</Button>
+            <Button Name="Btn1" Grid.Row="3" Grid.Column="0" Click="AppendDigit">1</Button>
+            <Button Name="Btn0" Grid.Row="4" Grid.Column="0" Click="AppendDigit" Grid.ColumnSpan="2">0</Button>
             <Button Name="BtnDot" Grid.Row="4" Grid.Column="2" Click="BtnDot_Click">.</Button>
 
             <!-- Operator Buttons -->
             <Button Style="{StaticResource FnKey}" Name="BtnClear" Grid.Row="0" Grid.Column="0" Click="BtnClear_Click">C</Button>
             <Button Style="{StaticResource FnKey}" Name="BtnBackspace" Grid.Row="0" Grid.Column="1" Click="BtnBackspace_Click">←</Button>
             <Button Style="{StaticResource FUNkey}" Name="BtnEmoji" Grid.Row="0" Grid.Column="2" Click="BtnFUN_Click"><emoji:TextBlock FontSize="24" Text="🙂"/></Button>
-            <Button Style="{StaticResource FnKey}" Name="BtnDivide" Grid.Row="0" Grid.Column="3" Click="BtnDivide_Click">÷</Button>
-            <Button Style="{StaticResource FnKey}" Name="BtnMultiply" Grid.Row="1" Grid.Column="3" Click="BtnMultiply_Click">×</Button>
-            <Button Style="{StaticResource FnKey}" Name="BtnMinus" Grid.Row="2" Grid.Column="3" Click="BtnMinus_Click">-</Button>
-            <Button Style="{StaticResource FnKey}" Name="BtnPlus" Grid.Row="3" Grid.Column="3" Click="BtnPlus_Click">+</Button>
+            <Button Style="{StaticResource FnKey}" Name="BtnDivide" Grid.Row="0" Grid.Column="3" Click="AppendOperator">÷</Button>
+            <Button Style="{StaticResource FnKey}" Name="BtnMultiply" Grid.Row="1" Grid.Column="3" Click="AppendOperator">×</Button>
+            <Button Style="{StaticResource FnKey}" Name="BtnMinus" Grid.Row="2" Grid.Column="3" Click="AppendOperator">-</Button>
+            <Button Style="{StaticResource FnKey}" Name="BtnPlus" Grid.Row="3" Grid.Column="3" Click="AppendOperator">+</Button>
             <Button Style="{StaticResource FnKey}" Name="BtnSubmit" Grid.Row="4" Grid.Column="3" Click="BtnSubmit_Click">=</Button>
         </Grid>
     </Grid>

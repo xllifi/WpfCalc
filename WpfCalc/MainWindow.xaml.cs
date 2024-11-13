@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using Dark.Net;
+using Stfu.Linq;
 
 namespace WpfCalc;
 
@@ -15,7 +18,10 @@ public partial class MainWindow : Window {
         DarkNet.Instance.SetWindowThemeWpf(this, Theme.Dark);
     }
 
-    private void AppendOperator(string op) {
+    private void AppendOperator(object sender, RoutedEventArgs e) {
+        Button btn = (Button)sender;
+        string op = (string)btn.Content;
+        
         if (TxtDisplay.Text == "" && op != "-") {
             return;
         }
@@ -23,7 +29,10 @@ public partial class MainWindow : Window {
         TxtDisplay.Text = Regex.Replace(TxtDisplay.Text, @"[-+\/*]+$", "") + op;
     }
 
-    private void AppendDigit(string dg) {
+    private void AppendDigit(object sender, RoutedEventArgs e) {
+        Button btn = (Button)sender;
+        string dg = (string)btn.Content;
+        
         if (TxtDisplay.Text == "0") {
             TxtDisplay.Text = dg;
             return;
@@ -32,47 +41,8 @@ public partial class MainWindow : Window {
         TxtDisplay.Text += dg;
     }
 
-    private void Btn9_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("9");
-    }
-
-    private void Btn8_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("8");
-    }
-
-    private void Btn7_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("7");
-    }
-
-    private void Btn6_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("6");
-    }
-
-    private void Btn5_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("5");
-    }
-
-    private void Btn4_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("4");
-    }
-
-    private void Btn3_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("3");
-    }
-
-    private void Btn2_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("2");
-    }
-
-    private void Btn1_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("1");
-    }
-
-    private void Btn0_Click(object sender, RoutedEventArgs e) {
-        AppendDigit("0");
-    }
-
     private void BtnDot_Click(object sender, RoutedEventArgs e) {
+        if (Regex.IsMatch(TxtDisplay.Text, @"\.$")) return;
         if (TxtDisplay.Text == "" || Regex.IsMatch(TxtDisplay.Text, @"[-+\/*]+$")) {
             TxtDisplay.Text += "0.";
             return;
@@ -84,38 +54,25 @@ public partial class MainWindow : Window {
         TxtDisplay.Text = "";
     }
 
-    private void BtnDivide_Click(object sender, RoutedEventArgs e) {
-        AppendOperator(@"÷");
-    }
-
-    private void BtnMultiply_Click(object sender, RoutedEventArgs e) {
-        AppendOperator(@"×");
-    }
-
-    private void BtnMinus_Click(object sender, RoutedEventArgs e) {
-        AppendOperator("-");
-    }
-
-    private void BtnPlus_Click(object sender, RoutedEventArgs e) {
-        AppendOperator("+");
-    }
-
     private void BtnSubmit_Click(object sender, RoutedEventArgs e) {
-        if (!Regex.IsMatch(TxtDisplay.Text, "^[\\d-].*[\\d]$")) { return; }
+        if (!Regex.IsMatch(TxtDisplay.Text, @"^[\d-].*[\d]$") || Regex.IsMatch(TxtDisplay.Text, @"÷0$")) { 
+            TxtDisplay.Text = "NaN";
+            return;
+        }
 
         // More readable Regex.Replace(Math.Round(decimal.Parse(new DataTable().Compute(TxtDisplay.Text, null).ToString()!), 2).ToString().Replace(",", "."), @"\.0{0,2}$", "")
              string output = TxtDisplay.Text; // Get expression
                     output = output.Replace(@"÷", "/").Replace(@"×", "*");
                     output = new DataTable().Compute(output, null).ToString()!; // Compute expression and convert to String
-        decimal tempOutput = decimal.Parse(output);
+         double tempOutput = double.Parse(output);
                 tempOutput = Math.Round(tempOutput, 2);
-                    output = Regex.Replace(tempOutput.ToString(), @"0+$", "");
-                    output = output.Replace(",", ".");
+                    output = tempOutput.ToString().Replace(",", ".");
         
         TxtDisplay.Text = output;
     }
 
     private void BtnBackspace_Click(object sender, RoutedEventArgs e) {
+        if (TxtDisplay.Text.Length == 0) return;
         TxtDisplay.Text = TxtDisplay.Text.Remove(TxtDisplay.Text.Length - 1, 1);
     }
 
